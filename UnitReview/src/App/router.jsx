@@ -20,6 +20,10 @@ const router = createBrowserRouter([
         path: "/form",
         element: <PartyForm />,
       },
+      {
+        path: "parties/:id",
+        element: <PartyDetails />,
+      },
     ],
   },
 ]);

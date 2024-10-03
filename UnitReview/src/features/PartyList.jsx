@@ -20,7 +20,7 @@ export default function PartyList() {
     <ul>
       {parties.map((p) => (
         <li key={p.id}>
-          <Link to={`/events/${p.id}`}>
+          <Link to={`/parties/${p.id}`}>
             {p.name} #{p.id}
           </Link>
           <p>{p.description}</p>
