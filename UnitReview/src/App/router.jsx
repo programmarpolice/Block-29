@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout";
 import PartyForm from "../features/PartyForm";
 import PartyList from "../features/PartyList";
+import PartyDetails from "../features/PartyDetails";
 
 const router = createBrowserRouter([
   {

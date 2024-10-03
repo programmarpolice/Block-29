@@ -17,12 +17,13 @@ export default function PartyDetails() {
 
   return (
     <article>
-      <h1>{id}</h1>
+      <h1>{party.name}</h1>
       {party ? (
         <>
-          <h2>{party.name}</h2>
-          <img src={party.imageUrl} alt={party.name} />
+          <h2>{id}</h2>
           <p>{party.description}</p>
+          <p>{party.location} </p>
+          <p> {party.date} </p>
         </>
       ) : (
         <p>There is no selected event.</p>
