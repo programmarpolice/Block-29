@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { useGetPartyQuery } from "./PartySlice";
+import { useDeletePartyMutation, useGetPartyQuery } from "./PartySlice";
 import { useParams } from "react-router-dom";
 
 export default function PartyDetails() {
   const { id } = useParams();
 
   const { data: party, isLoading, error } = useGetPartyQuery(id);
+
+  const [deleteParty] = useDeletePartyMutation();
+
+  function removeParty(id) {
+    deleteParty(id);
+  }
 
   if (isLoading) {
     return <p>Loading events...</p>;
@@ -24,6 +30,7 @@ export default function PartyDetails() {
           <p>{party.description}</p>
           <p>{party.location} </p>
           <p> {party.date} </p>
+          <button onClick={() => removeParty(party.id)}> Delete Party </button>
         </>
       ) : (
         <p>There is no selected event.</p>
