@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
     <div>
       <nav>
-        <p> Landing Page </p>
-        <p> Form </p>
+        <NavLink to="/"> Home </NavLink>
+        <NavLink to="/form"> Form </NavLink>
       </nav>
       <Outlet />
     </div>

@@ -15,10 +15,10 @@ const partyApi = api.injectEndpoints({
       providesTags: ["Party"],
     }),
     addParty: build.mutation({
-      query: (recipe) => ({
+      query: (party) => ({
         url: "events",
         method: "POST",
-        body: recipe,
+        body: party,
       }),
       invalidatesTags: ["Party"],
       transformResponse: (response) => response.data,

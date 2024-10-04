@@ -30,7 +30,9 @@ export default function PartyDetails() {
           <p>{party.description}</p>
           <p>{party.location} </p>
           <p> {party.date} </p>
-          <button onClick={() => removeParty(party.id)}> Delete Party </button>
+          <button onClick={() => removeParty(party.id)}>
+            <Link to="/">Delete Party</Link>
+          </button>
         </>
       ) : (
         <p>There is no selected event.</p>

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 export default function PartyForm() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+
   const [addParty, { isLoading }] = useAddPartyMutation();
   const [error, setError] = useState("");
 
@@ -17,7 +19,6 @@ export default function PartyForm() {
       const party = await addParty({
         name,
         description,
-        imageUrl,
       }).unwrap();
       navigate(`/events/${party.id}`);
     } catch (e) {
@@ -25,8 +26,21 @@ export default function PartyForm() {
     }
   }
   return (
-    <>
-      <p> Party Form </p>
-    </>
+    <form onSubmit={postParty}>
+      <label>
+        Name
+        <input value={name} onChange={(e) => setName(e.target.value)} />
+      </label>
+      <label>
+        Description
+        <input
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </label>
+      <button>Add Party</button>
+      {isLoading && <output>Sending party to API...</output>}
+      {error && <output>{error}</output>}
+    </form>
   );
 }
